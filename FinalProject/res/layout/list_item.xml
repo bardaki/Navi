@@ -1,0 +1,11 @@
+<!-- res/layout/list_item.xml -->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtAddress"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:gravity="right"
+    android:textSize="20sp"
+    android:textStyle="bold|italic"
+    android:background="#000000"/>

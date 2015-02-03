@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/road"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".StartAddressActivity" >
+
+    <!--
+    <ListView
+        android:id="@+id/placesListView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/bautocomplete"
+        android:layout_above="@+id/btn2Next"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp" >
+    </ListView>
+    -->
+
+    <Button
+        android:id="@+id/btn4Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="startNavClicked"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        android:background="@drawable/button_shape"
+        android:text="@string/next" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autocomplete3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btn4Next"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:textColor="#FFFFFF"
+        android:popupBackground="#0FFF" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:text="@string/end"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"/>
+    
+    <Button
+        android:id="@+id/btn4Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn4Next"
+        android:onClick="backClicked"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        android:background="@drawable/button_shape"
+        android:text="@string/back" />
+
+</RelativeLayout>
