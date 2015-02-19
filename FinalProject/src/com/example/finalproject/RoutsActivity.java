@@ -68,8 +68,9 @@ public class RoutsActivity extends ActionBarActivity  {
 			}
 		});
 		
-		ActionBar bar = getSupportActionBar();
-		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ABFF")));
+		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ABFF")));	
+		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+		getSupportActionBar().setCustomView(R.layout.abs_routes);
 	}
 
 	@Override
@@ -140,6 +141,11 @@ public class RoutsActivity extends ActionBarActivity  {
 	public void onResume(){
 		super.onResume();
 		stopService(intService);
+//		Intent i = new Intent(RoutsActivity.this, RoutsActivity.class);
+//		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//		//i.putExtra("routes", (Serializable)navigationOptions.get(minTimeIndex) );  
+//		i.putExtra("navObj", (Serializable)nav );  	
+//		startActivity(i);
 	}
 
 	public class CustomAdapter extends ArrayAdapter<String> {

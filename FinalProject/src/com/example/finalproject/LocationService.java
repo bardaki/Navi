@@ -53,8 +53,8 @@ public class LocationService extends Service
 		nav = (Navigation) intent.getSerializableExtra("navObj");
 		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		listener = new MyLocationListener();        
-		locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, (LocationListener) listener);
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, listener);
+		locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10000, 0, (LocationListener) listener);
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, listener);
 	}
 
 	@Override

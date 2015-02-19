@@ -50,8 +50,10 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 			e.printStackTrace();
 		}
 
-		ActionBar bar = getSupportActionBar();
-		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ABFF")));
+		//ActionBar bar = getSupportActionBar();
+		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ABFF")));
+		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+		getSupportActionBar().setCustomView(R.layout.abs_main);
 	}
 
 	private Location getMyLocation() {

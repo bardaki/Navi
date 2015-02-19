@@ -1,9 +1,9 @@
 package com.example.finalproject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import com.example.finalproject.R;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
 import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -31,7 +30,7 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 	private static AddressAdapter adapter;
 	private Navigation nav = new Navigation();
 
-	@Override
+	@SuppressLint("ClickableViewAccessibility") @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_addresses);		
@@ -52,7 +51,7 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		});
 	    autoCompViewStart.setOnTouchListener(new OnTouchListener() {
 			
-			@Override
+			@SuppressLint("ClickableViewAccessibility") @Override
 			public boolean onTouch(View v, MotionEvent event) {
 				autoCompViewStart.setHint("");
 				return false;
@@ -75,7 +74,7 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		autoCompViewEnd.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
 		autoCompViewEnd.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
+			@SuppressLint("ClickableViewAccessibility") @Override
 			public void onItemClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
 				String str = (String) adapterView.getItemAtPosition(position);
@@ -99,8 +98,6 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		adapter = new AddressAdapter(this, placesArray);	
 		ListView places = (ListView) findViewById(R.id.addressesListView);
 		places.setAdapter(adapter);		
-		ActionBar bar = getSupportActionBar();
-		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ABFF")));	
 		ListView lv = (ListView)findViewById(R.id.addressesListView);
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
@@ -129,6 +126,11 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 				dialogEditAddress.show();				
 			}
 		});
+		
+		//ActionBar bar = getSupportActionBar();
+		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ABFF")));	
+		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+		getSupportActionBar().setCustomView(R.layout.abs_plane_route);
 	}
 	
 	@Override
@@ -147,9 +149,9 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
         case R.id.action_startnav:
         	startNavClicked();
             return true;
-        case R.id.action_startnav2:
-        	startNavClicked();
-            return true;
+//        case R.id.action_startnav2:
+//        	startNavClicked();
+//            return true;
 //        case R.id.action_person:
 //            // refresh
 //            return true;
@@ -179,18 +181,4 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		DirectionsFetcher df = new DirectionsFetcher(nav, this);
 		df.execute();
 	}
-	
-//	public void nextClicked(){
-//		Intent i = new Intent(AddressesActivity.this, EndAddressActivity.class);
-//		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//		i.putExtra("navObj", (Serializable)nav );  
-//		startActivity(i);
-//	}
-	
-//	public void backClicked(View v){
-//		Intent i = new Intent(AddressesActivity.this, StartAddressActivity.class);
-//		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//		i.putExtra("navObj", (Serializable)nav );  
-//		startActivity(i);
-//	}
 }

@@ -15,7 +15,7 @@
     <string name="title_activity_test">TestActivity</string>
     <string name="title_activity_show_map">ShowMapActivity</string>
     <string name="backToRoutes">Back To Routes</string>
-    <string name="startnav">מצא מסלול</string>
+    <string name="startnav">חפש</string>
     <string name="next">הבא</string>
     <string name="back">הקודם</string>
     <string name="remove">מחק כתובת מהרשימה</string>
@@ -24,7 +24,7 @@
     <string name="action_help">עזרה</string>
     <string name="action_person">אישי</string>
     <string name="action_favorits">מועדפים</string>
-    <string name="action_map">חפש</string>
+    <string name="action_map">תכנון מסלול</string>
 
     <color name="gray">#DCE1E1</color>
     <color name="green">#00FF00</color>
