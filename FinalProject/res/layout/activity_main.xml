@@ -57,10 +57,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="?android:attr/selectableItemBackground"
-                android:drawableTop="@drawable/ic_action_map"
+                android:drawableTop="@drawable/ic_action_split"
                 android:orderInCategory="0"
+                android:onClick="nextClicked"
                 android:src="@drawable/ic_action_map"
-                android:text="Plane route"
+                android:text="@string/action_map"
                 android:textColor="@color/black"
                 android:textSize="8sp" />
 
@@ -71,10 +72,9 @@
                 android:layout_weight="1"
                 android:background="?android:attr/selectableItemBackground"
                 android:drawableTop="@drawable/ic_action_favorite"
-                android:onClick="nextClicked"
                 android:orderInCategory="0"
                 android:src="@drawable/ic_action_favorite"
-                android:text="Favorites"
+                android:text="@string/action_favorits"
                 android:textColor="@color/black"
                 android:textSize="8sp" />
 
@@ -87,7 +87,7 @@
                 android:drawableTop="@drawable/ic_action_person"
                 android:orderInCategory="0"
                 android:src="@drawable/ic_action_person"
-                android:text="Private"
+                android:text="@string/action_person"
                 android:textColor="@color/black"
                 android:textSize="8sp" />
 
@@ -100,7 +100,7 @@
                 android:drawableTop="@drawable/ic_action_help"
                 android:orderInCategory="0"
                 android:src="@drawable/ic_action_help"
-                android:text="Help"
+                android:text="@string/action_help"
                 android:textColor="@color/black"
                 android:textSize="8sp" />
 
@@ -112,7 +112,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:drawableTop="@drawable/ic_action_settings"
                 android:src="@drawable/ic_action_settings"
-                android:text="Settings"
+                android:text="@string/action_settings"
                 android:textColor="@color/black"
                 android:textSize="8sp" />
         </LinearLayout>

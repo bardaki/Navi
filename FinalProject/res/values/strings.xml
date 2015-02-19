@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AutoComplete</string>
+    <string name="app_name">MyApp</string>
     <string name="hello_world">Hello world!</string>
     <string name="auto_complete">AutoComplete</string>
     <string name="multi_auto_complete">Multi AutoComplete</string>
@@ -15,7 +15,7 @@
     <string name="title_activity_test">TestActivity</string>
     <string name="title_activity_show_map">ShowMapActivity</string>
     <string name="backToRoutes">Back To Routes</string>
-    <string name="startNavigation">נווט</string>
+    <string name="startnav">מצא מסלול</string>
     <string name="next">הבא</string>
     <string name="back">הקודם</string>
     <string name="remove">מחק כתובת מהרשימה</string>
@@ -24,7 +24,7 @@
     <string name="action_help">עזרה</string>
     <string name="action_person">אישי</string>
     <string name="action_favorits">מועדפים</string>
-    <string name="action_map">תכנן מסלול</string>
+    <string name="action_map">חפש</string>
 
     <color name="gray">#DCE1E1</color>
     <color name="green">#00FF00</color>
@@ -34,9 +34,9 @@
 	<color name="myblue">#00ABFF</color>
 	
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_addresses">AddressesActivity</string>
+    <string name="title_activity_addresses">תכנון מסלול</string>
     <string name="title_activity_end_address">EndAddressActivity</string>
-    <string name="title_activity_routs">RoutsActivity</string>
+    <string name="title_activity_routs">מסלול אופטימלי</string>
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="title_activity_address_edit"></string>
 

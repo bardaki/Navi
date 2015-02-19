@@ -54,7 +54,6 @@
         android:id="@+id/autocompleteEnd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:background="@drawable/autocomp_style"
         android:completionThreshold="1"
         android:dropDownListViewStyle="@style/searchResultsList"
@@ -71,7 +70,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="0dp"
         android:orientation="vertical"
-        android:background="@color/white" >
+        android:background="@drawable/customborder" >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -84,7 +83,7 @@
         		   android:orderInCategory="0"
           		   android:src="@drawable/ic_action_map"
           		   android:background="?android:attr/selectableItemBackground"
-          		   android:drawableTop="@drawable/ic_action_map"
+          		   android:drawableTop="@drawable/ic_action_split"
           		   android:text="@string/action_map"
           		   android:textColor="@color/black"
           		   android:textSize="8sp"

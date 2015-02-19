@@ -11,6 +11,7 @@ public class Navigation implements Serializable{
 
 	public Navigation(){
 		addresses = new ArrayList<String>();
+		
 	}
 
 	public void addAddress(String address){

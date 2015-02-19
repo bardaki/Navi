@@ -82,8 +82,10 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 		Geocoder geocoder = new Geocoder(context, Locale.getDefault());
 		List<Address> addresses;
 		try {
-			addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-			nav.addStartAdd(addresses.get(0).getAddressLine(0) + "," + addresses.get(0).getAddressLine(1) + "," + addresses.get(0).getAddressLine(2));
+			if(nav.getStartAdd().equals("")){
+				addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+				nav.addStartAdd(addresses.get(0).getAddressLine(0) + "," + addresses.get(0).getAddressLine(1) + "," + addresses.get(0).getAddressLine(2));
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

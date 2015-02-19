@@ -69,14 +69,14 @@ public class RoutsActivity extends ActionBarActivity  {
 		});
 		
 		ActionBar bar = getSupportActionBar();
-		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0000ff")));
+		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ABFF")));
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.activity_main_actions, menu);
+		inflater.inflate(R.menu.actionbar, menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}

@@ -92,7 +92,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.activity_main_actions, menu);
+		inflater.inflate(R.menu.actionbar, menu);
 
 		super.onCreateOptionsMenu(menu);
 		return true;

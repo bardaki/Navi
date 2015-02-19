@@ -38,9 +38,18 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		Intent i = getIntent();
 	    nav = (Navigation) i.getSerializableExtra("navObj");	
 	    
+	    //Start Address
 	    final AutoCompleteTextView autoCompViewStart = (AutoCompleteTextView) findViewById(R.id.autocompleteStart);
 	    autoCompViewStart.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
-	    //autoCompViewStart.setOnItemClickListener(this);
+	    autoCompViewStart.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				String str = (String) adapterView.getItemAtPosition(position);
+				nav.addStartAdd(str);				
+			}
+		});
 	    autoCompViewStart.setOnTouchListener(new OnTouchListener() {
 			
 			@Override
@@ -49,6 +58,7 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 				return false;
 			}
 		});
+	    //Addresses
 		final AutoCompleteTextView autoCompViewAddresses = (AutoCompleteTextView) findViewById(R.id.autocompleteAddresses);
 		autoCompViewAddresses.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
 		autoCompViewAddresses.setOnItemClickListener(this);
@@ -60,9 +70,18 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 				return false;
 			}
 		});
+		//End Address
 		final AutoCompleteTextView autoCompViewEnd = (AutoCompleteTextView) findViewById(R.id.autocompleteEnd);
 		autoCompViewEnd.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
-		//autoCompViewEnd.setOnItemClickListener(this);
+		autoCompViewEnd.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				String str = (String) adapterView.getItemAtPosition(position);
+				nav.addEndAdd(str);				
+			}
+		});
 		autoCompViewEnd.setOnTouchListener(new OnTouchListener() {
 			
 			@Override
@@ -72,6 +91,7 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 			}
 		});
 		
+		//List of Addresses
 		for(int j = 0; j < nav.getAddresses().size(); j++){
 			placesArray.add(new Address(nav.getAddresses().get(j) , R.drawable.edit));
 		}
@@ -124,13 +144,12 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 	public boolean onOptionsItemSelected(MenuItem item) {
 		 // Take appropriate action for each action item click
         switch (item.getItemId()) {
-//        case R.id.action_map:
-//            // search action
-//            return true;
-//        case R.id.action_favorits:
-//            // location found
-//        	//nextClicked();
-//            return true;
+        case R.id.action_startnav:
+        	startNavClicked();
+            return true;
+        case R.id.action_startnav2:
+        	startNavClicked();
+            return true;
 //        case R.id.action_person:
 //            // refresh
 //            return true;
@@ -156,13 +175,18 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		autoCompViewAddreses.setText("");
 	}
 	
-//	public void nextClicked(View v){
+	public void startNavClicked(){
+		DirectionsFetcher df = new DirectionsFetcher(nav, this);
+		df.execute();
+	}
+	
+//	public void nextClicked(){
 //		Intent i = new Intent(AddressesActivity.this, EndAddressActivity.class);
 //		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //		i.putExtra("navObj", (Serializable)nav );  
 //		startActivity(i);
 //	}
-//	
+	
 //	public void backClicked(View v){
 //		Intent i = new Intent(AddressesActivity.this, StartAddressActivity.class);
 //		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
