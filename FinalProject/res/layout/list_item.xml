@@ -4,8 +4,8 @@
     android:id="@+id/txtAddress"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:textColor="#FFFFFF"
     android:gravity="right"
-    android:textSize="20sp"
+    android:textSize="15sp"
     android:textStyle="bold|italic"
-    android:background="#000000"/>
+    android:padding="8dp"
+    android:background="?android:attr/listDivider" />

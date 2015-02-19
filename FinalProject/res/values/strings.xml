@@ -2,14 +2,13 @@
 <resources>
 
     <string name="app_name">AutoComplete</string>
-    <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="auto_complete">AutoComplete</string>
     <string name="multi_auto_complete">Multi AutoComplete</string>
     <string name="welcome">ברוך הבא</string>
-    <string name="start">הכנס כתובת התחלה</string>
-    <string name="addresses">הכנס כתובות ביקור</string>
-    <string name="end">הכנס כתובת סיום</string>
+    <string name="start">מיקום נוכחי</string>
+    <string name="addresses">בחר יעדים</string>
+    <string name="end">יעד סיום</string>
     <string name="title_activity_test_map">TestMapActivity</string>
     <string name="title_activity_test_route">TestRoute</string>
     <string name="title_activity_directions_maps_fragment">DirectionsMapsFragment</string>
@@ -21,12 +20,19 @@
     <string name="back">הקודם</string>
     <string name="remove">מחק כתובת מהרשימה</string>
     <string name="timeText">שעה אחרונה להגעה: </string>
+    <string name="action_settings">הגדרות</string>
+    <string name="action_help">עזרה</string>
+    <string name="action_person">אישי</string>
+    <string name="action_favorits">מועדפים</string>
+    <string name="action_map">תכנן מסלול</string>
 
-    <color name="gray">#696969</color>
+    <color name="gray">#DCE1E1</color>
     <color name="green">#00FF00</color>
     <color name="red">#FF0000</color>
     <color name="white">#FFFFFF</color>
-
+    <color name="black">#000000</color>
+	<color name="myblue">#00ABFF</color>
+	
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_addresses">AddressesActivity</string>
     <string name="title_activity_end_address">EndAddressActivity</string>

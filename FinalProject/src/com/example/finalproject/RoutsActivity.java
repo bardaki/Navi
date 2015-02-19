@@ -9,17 +9,24 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RoutsActivity extends ListActivity  {
+public class RoutsActivity extends ActionBarActivity  {
 	private List<Route> routes = new ArrayList<Route>();
 	private Navigation nav = new Navigation();
 
@@ -44,16 +51,61 @@ public class RoutsActivity extends ListActivity  {
 			list.add(values[i]);
 		}
 		CustomAdapter adapter = new CustomAdapter(this, android.R.layout.simple_list_item_1, list);
-		setListAdapter(adapter);
+		ListView lv = (ListView) findViewById(R.id.list);
+		lv.setAdapter(adapter);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				intService.putExtra("endLatitude", routes.get(position).getLatitude());
+				intService.putExtra("endLongitude", routes.get(position).getLongitude());
+				intService.putExtra("routes", (Serializable)routes);  
+				intService.putExtra("navObj", (Serializable)nav ); 
+				startService(intService);
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + routes.get(position).getDestination()));
+				startActivity(intent); 
+				
+			}
+		});
+		
+		ActionBar bar = getSupportActionBar();
+		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0000ff")));
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.routs, menu);
-		return true;
+		// Inflate the menu; this adds items to the action bar if it is present.
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.activity_main_actions, menu);
+
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Take appropriate action for each action item click
+		switch (item.getItemId()) {
+//		case R.id.action_map:
+//			// search action
+//			return true;
+//		case R.id.action_favorits:
+//			// location found
+//			//nextClicked();
+//			return true;
+//		case R.id.action_person:
+//			// refresh
+//			return true;
+//		case R.id.action_help:
+//			// help action
+//			return true;
+//		case R.id.action_settings:
+//			// check for updates action
+//			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		//Start google navigation activity
 		//		Intent i = new Intent(RoutsActivity.this, ShowMapActivity.class);
@@ -99,7 +151,7 @@ public class RoutsActivity extends ListActivity  {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View v = super.getView(position, convertView, parent);
-			((TextView) v).setTextColor(Color.WHITE); 
+			((TextView) v).setTextColor(Color.BLACK); 
 			((TextView) v).setTextSize(18);
 			return v;
 		}

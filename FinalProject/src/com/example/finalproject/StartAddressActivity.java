@@ -4,13 +4,20 @@ import com.example.finalproject.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 
-public class StartAddressActivity extends Activity implements OnItemClickListener {
+public class StartAddressActivity extends ActionBarActivity implements OnItemClickListener {
 	private Navigation nav = new Navigation();
 
 	@Override
@@ -36,5 +43,40 @@ public class StartAddressActivity extends Activity implements OnItemClickListene
 	public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 		String str = (String) adapterView.getItemAtPosition(position);
 		nav.addStartAdd(str);
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.activity_main_actions, menu);
+
+		super.onCreateOptionsMenu(menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Take appropriate action for each action item click
+		switch (item.getItemId()) {
+		//        case R.id.action_map:
+		//            // search action
+		//            return true;
+		//        case R.id.action_favorits:
+		//            // location found
+		//        	//nextClicked();
+		//            return true;
+		//        case R.id.action_person:
+		//            // refresh
+		//            return true;
+		//        case R.id.action_help:
+		//            // help action
+		//            return true;
+		//        case R.id.action_settings:
+		//            // check for updates action
+		//            return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 }

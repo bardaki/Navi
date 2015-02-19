@@ -79,8 +79,6 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 		Criteria criteria = new Criteria();
 		String provider = locationManager.getBestProvider(criteria, true);
 		Location location = locationManager.getLastKnownLocation(provider);		
-//		String url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + location.getLatitude() + "," + location.getLongitude() + "&sensor=true";
-//		nav.addStartAdd(getAddressFromUrl(url));
 		Geocoder geocoder = new Geocoder(context, Locale.getDefault());
 		List<Address> addresses;
 		try {
@@ -170,6 +168,8 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 	}
 
 	public List<List<Route>> getRoutes(){
+		int sum = 0;
+		int minTime = Integer.MAX_VALUE;
 		//Add routes
 		List<List<Route>> navigationOptions2 = new ArrayList<List<Route>>();
 		for(int i = 0; i < navigationOptions.size(); i++){
@@ -180,9 +180,19 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 						List<Route> list = new ArrayList<Route>();
 						for(int k = 0; k < navigationOptions.get(i).size(); k++){
 							list.add(navigationOptions.get(i).get(k));
+							sum += navigationOptions.get(i).get(k).getDuration();
+							if(sum >= minTime)
+								break;
 						}
-						list.add(routes.get(j));
-						navigationOptions2.add(list);
+						if(sum < minTime){
+							minTime = sum;
+							//indexMin = i;
+							list.add(routes.get(j));
+							navigationOptions2.add(list);
+						}
+						sum = 0;
+//						list.add(routes.get(j));
+//						navigationOptions2.add(list);
 					}
 				}
 			}
