@@ -1,8 +1,11 @@
-package com.example.finalproject;
+package com.example.finalproject.services;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.finalproject.classes.Navigation;
+import com.example.finalproject.classes.Route;
 
 import android.app.AlertDialog;
 import android.app.Service;

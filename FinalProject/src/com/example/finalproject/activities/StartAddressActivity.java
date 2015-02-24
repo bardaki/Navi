@@ -1,12 +1,11 @@
-package com.example.finalproject;
+package com.example.finalproject.activities;
+
 import java.io.Serializable;
 import com.example.finalproject.R;
+import com.example.finalproject.classes.Navigation;
+import com.example.finalproject.custom.PlacesAutoCompleteAdapter;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -49,7 +48,7 @@ public class StartAddressActivity extends ActionBarActivity implements OnItemCli
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.activity_main_actions, menu);
+		inflater.inflate(R.menu.actionbar, menu);
 
 		super.onCreateOptionsMenu(menu);
 		return true;

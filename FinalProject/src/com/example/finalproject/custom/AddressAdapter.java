@@ -1,6 +1,9 @@
-package com.example.finalproject;
+package com.example.finalproject.custom;
 
-import java.util.ArrayList;
+import java.util.List;
+import com.example.finalproject.R;
+import com.example.finalproject.classes.Address;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class AddressAdapter extends BaseAdapter {
-	ArrayList<Address> data;
+	List<Address> data;
 	Context context;
 	
-	public AddressAdapter(Context c, ArrayList<Address> d){
-		this.data = d;
+	public AddressAdapter(Context c, List<Address> placesArray){
+		this.data = placesArray;
 		this.context = c;	
 	}
 
@@ -35,6 +38,7 @@ public class AddressAdapter extends BaseAdapter {
 		return index;
 	}
 
+	@SuppressLint({ "ViewHolder", "InflateParams" }) 
 	public View getView(int index, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.address_item, null);

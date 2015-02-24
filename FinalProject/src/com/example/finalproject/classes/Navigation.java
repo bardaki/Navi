@@ -1,17 +1,24 @@
-package com.example.finalproject;
+package com.example.finalproject.classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Navigation implements Serializable{
+	private String id;
 	private String startAdd = "";
 	private List<String> addresses;
 	private String endAdd = "";
 
 	public Navigation(){
-		addresses = new ArrayList<String>();
-		
+		addresses = new ArrayList<String>();		
+	}
+	
+	public Navigation(String id, String startAdd, List<String> addresses, String endAdd){
+		this.id = id;
+		this.startAdd = startAdd;
+		this.addresses = addresses;
+		this.endAdd = endAdd;
 	}
 
 	public void addAddress(String address){
@@ -40,5 +47,16 @@ public class Navigation implements Serializable{
 
 	public void removeFromAddresses(int position){
 		addresses.remove(position);
+	}
+	
+	public String toString(){
+		String[] src = startAdd.split(",");
+		String[] dst = endAdd.split(",");
+
+		return src[0] + " - " + dst[0] + " : " + addresses.size() + " נקודות ביניים";
+	}
+
+	public String getId() {
+		return id;
 	}
 }

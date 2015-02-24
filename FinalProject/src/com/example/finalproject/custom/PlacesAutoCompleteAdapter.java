@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.custom;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,18 +7,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.content.Context;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 
-class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements Filterable {
+public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements Filterable {
 	private ArrayList<String> resultList;
 	private static final String LOG_TAG = "ExampleApp";
 	private static final String PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place";

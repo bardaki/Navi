@@ -1,6 +1,6 @@
-package com.example.finalproject;
+package com.example.finalproject.activities;
 
-import java.io.Serializable;
+import com.example.finalproject.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -125,11 +125,15 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 		}
 	}
 
-	public void nextClicked(View v){
+	public void RoutesClicked(View v){
 		Intent i = new Intent(MainActivity.this, AddressesActivity.class);
-		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		Navigation nav = new Navigation();
-		i.putExtra("navObj", (Serializable)nav );  
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(i);
+	}
+	
+	public void favoritesClicked(View v){
+		Intent i = new Intent(MainActivity.this, FavoritesActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
 

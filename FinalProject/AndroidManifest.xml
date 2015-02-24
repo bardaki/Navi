@@ -32,12 +32,13 @@
         android:required="true" />
 
     <application
+        android:name=".custom.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name" >
             <intent-filter>
@@ -54,18 +55,18 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".DirectionsMapsFragment"
+            android:name=".activities.DirectionsMapsFragment"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_directions_maps_fragment" >
         </activity>
         <activity
-            android:name=".StartAddressActivity"
+            android:name=".activities.StartAddressActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_test"
             android:windowSoftInputMode="adjustPan|adjustResize" >
         </activity>
         <activity
-            android:name=".ShowMapActivity"
+            android:name=".activities.ShowMapActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_show_map" >
         </activity>
@@ -78,35 +79,43 @@
             android:value="AIzaSyBcAsJ3USfZMK7lu0RntTuY6uJntkwXOz4" />
 
         <activity
-            android:name=".AddressesActivity"
+            android:name=".activities.AddressesActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_addresses"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".EndAddressActivity"
+            android:name=".activities.EndAddressActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_end_address" >
         </activity>
         <activity
-            android:name=".RoutsActivity"
+            android:name=".activities.RoutsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_routs" >
         </activity>
         <activity
-            android:name=".NavigationActivity"
+            android:name=".activities.NavigationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_navigation" >
         </activity>
 
         <service
-            android:name=".LocationService"
+            android:name=".services.LocationService"
             android:label="My Service" >
         </service>
 
         <activity
-            android:name=".AddressEditActivity"
+            android:name=".activities.AddressEditActivity"
             android:label="@string/title_activity_address_edit" >
+        </activity>
+        <activity
+            android:name=".activities.FavoritesActivity"
+            android:label="@string/title_activity_favorites" >
+        </activity>
+        <activity
+            android:name=".FavoriteDetailsActivity"
+            android:label="@string/title_activity_favorite_details" >
         </activity>
     </application>
 

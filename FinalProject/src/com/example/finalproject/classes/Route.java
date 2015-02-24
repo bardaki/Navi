@@ -1,12 +1,7 @@
-package com.example.finalproject;
+package com.example.finalproject.classes;
 
 import java.io.Serializable;
-import java.util.List;
 
-import android.location.Address;
-import android.location.Geocoder;
-
-import com.google.android.maps.GeoPoint;
 
 public class Route implements Serializable{
 	private String source;

@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.classes;
 
 public class Address {
 	String name;

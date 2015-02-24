@@ -1,19 +1,13 @@
-package com.example.finalproject;
+package com.example.finalproject.bl;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-
-import org.json.JSONObject;
-
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
-import android.app.DownloadManager.Request;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
@@ -24,14 +18,14 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.Gravity;
-
+import com.example.finalproject.activities.RoutsActivity;
+import com.example.finalproject.classes.Navigation;
+import com.example.finalproject.classes.Route;
+import com.example.finalproject.custom.MyApplication;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.maps.GeoPoint;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.GenericUrl;
@@ -44,9 +38,6 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.jackson.JacksonFactory;
 import com.google.api.client.util.Key;
-import com.google.gson.Gson;
-import com.google.maps.android.PolyUtil;
-import com.google.maps.android.quadtree.PointQuadTree.Item;
 
 
 public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > implements LocationListener {
@@ -61,15 +52,15 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 	private int minTimeIndex = 0;
 	private final ProgressDialog ringProgressDialog;
 
-	public DirectionsFetcher(Navigation nav, Context context) {
+	public DirectionsFetcher(Context context) {
 		this.context = context;
-		this.nav = nav;
 		this.ringProgressDialog = ProgressDialog.show(context, "אנא המתן...", "מחשב מסלול אופטימלי...", true);
 	}
 
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
+		this.nav = ((MyApplication) ((Activity) context).getApplication()).getNavigation();
 		ringProgressDialog.getWindow().setGravity(Gravity.RIGHT);
 		ringProgressDialog.setCancelable(false);
 	}
@@ -85,6 +76,10 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 			if(nav.getStartAdd().equals("")){
 				addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
 				nav.addStartAdd(addresses.get(0).getAddressLine(0) + "," + addresses.get(0).getAddressLine(1) + "," + addresses.get(0).getAddressLine(2));
+			}
+			if(nav.getEndAdd().equals("")){
+				addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+				nav.addEndAdd(addresses.get(0).getAddressLine(0) + "," + addresses.get(0).getAddressLine(1) + "," + addresses.get(0).getAddressLine(2));
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -297,10 +292,12 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 
 	protected void onPostExecute(List<LatLng> result) {   
 		ringProgressDialog.dismiss();
+		//set global variable
+		((MyApplication) ((Activity) context).getApplication()).setRoutes(navigationOptions.get(minTimeIndex));
 		Intent i = new Intent(context, RoutsActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		i.putExtra("routes", (Serializable)navigationOptions.get(minTimeIndex) );  
-		i.putExtra("navObj", (Serializable)nav );  	
+//		i.putExtra("routes", (Serializable)navigationOptions.get(minTimeIndex) );  
+//		i.putExtra("navObj", (Serializable)nav );  	
 		context.startActivity(i);
 	}
 

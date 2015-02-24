@@ -7,29 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.finalproject.MainActivity" >
-
-    <!--
-         <Button
-        android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/button_shape"
-        android:onClick="nextClicked"
-        android:text="@string/startNavigation"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:textStyle="bold|italic" />
-    -->
+    tools:context="com.example.finalproject.activities.MainActivity" >
 
 
-    <!--
-         <WebView android:id="@+id/webview"
-   			android:layout_width="fill_parent"
-   			android:layout_height="fill_parent" />
-    -->
     
      <fragment 
   android:id="@+id/mapview"
@@ -59,7 +39,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:drawableTop="@drawable/ic_action_split"
                 android:orderInCategory="0"
-                android:onClick="nextClicked"
+                android:onClick="RoutesClicked"
                 android:src="@drawable/ic_action_map"
                 android:text="@string/action_map"
                 android:textColor="@color/black"
@@ -73,6 +53,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:drawableTop="@drawable/ic_action_favorite"
                 android:orderInCategory="0"
+                android:onClick="favoritesClicked"
                 android:src="@drawable/ic_action_favorite"
                 android:text="@string/action_favorits"
                 android:textColor="@color/black"

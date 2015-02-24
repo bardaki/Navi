@@ -1,21 +1,17 @@
-package com.example.finalproject;
+package com.example.finalproject.activities;
 
-
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-
-import android.location.Address;
-import android.location.Geocoder;
+import com.example.finalproject.R;
+import com.example.finalproject.classes.Navigation;
+import com.example.finalproject.classes.Route;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,18 +62,18 @@ public class NavigationActivity extends Activity {
 		}
 	}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		Intent i = getIntent();
-		myBlogAddr = (String) i.getStringExtra("navigationUrl");	
-		routes = (List<Route>) i.getSerializableExtra("routes");	
-		nav = (Navigation) i.getSerializableExtra("navObj");
-		setContentView(R.layout.activity_navigation);		
-		locationListener = new MyLocationListener();  
-		locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);  
-		locationMangaer.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener); 
-	}
+//	@Override
+//	protected void onCreate(Bundle savedInstanceState) {
+//		super.onCreate(savedInstanceState);
+//		Intent i = getIntent();
+//		myBlogAddr = (String) i.getStringExtra("navigationUrl");	
+//		routes = (List<Route>) i.getSerializableExtra("routes");	
+//		nav = (Navigation) i.getSerializableExtra("navObj");
+//		setContentView(R.layout.activity_navigation);		
+//		locationListener = new MyLocationListener();  
+//		locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);  
+//		locationMangaer.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener); 
+//	}
 
 	public void backClick(View view){
 		Intent i = new Intent(NavigationActivity.this, RoutsActivity.class);

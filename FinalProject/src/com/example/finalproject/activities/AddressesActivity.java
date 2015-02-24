@@ -1,7 +1,16 @@
-package com.example.finalproject;
+package com.example.finalproject.activities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import com.example.finalproject.R;
+import com.example.finalproject.bl.DirectionsFetcher;
+import com.example.finalproject.classes.Address;
+import com.example.finalproject.classes.Navigation;
+import com.example.finalproject.custom.AddressAdapter;
+import com.example.finalproject.custom.MyApplication;
+import com.example.finalproject.custom.PlacesAutoCompleteAdapter;
+import com.example.finalproject.utils.SqliteController;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -24,23 +33,28 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddressesActivity extends ActionBarActivity implements OnItemClickListener  {
-	private ArrayList<Address> placesArray = new ArrayList<Address>();
+	//	private SqliteController sqlController = new SqliteController(this);
+	private List<Address> placesArray = new ArrayList<Address>();
 	private static AddressAdapter adapter;
-	private Navigation nav = new Navigation();
+	private Navigation nav;
 
 	@SuppressLint("ClickableViewAccessibility") @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_addresses);		
-		Intent i = getIntent();
-	    nav = (Navigation) i.getSerializableExtra("navObj");	
-	    
-	    //Start Address
-	    final AutoCompleteTextView autoCompViewStart = (AutoCompleteTextView) findViewById(R.id.autocompleteStart);
-	    autoCompViewStart.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
-	    autoCompViewStart.setOnItemClickListener(new OnItemClickListener() {
+		setContentView(R.layout.activity_addresses);	
+		// get global variable
+		nav = ((MyApplication) this.getApplication()).getNavigation();
+		if(nav.getId() == null){
+			nav = new Navigation(java.util.UUID.randomUUID().toString(), "", new ArrayList<String>(), "");
+		}
+		Intent i = getIntent();    
+		//Start Address
+		final AutoCompleteTextView autoCompViewStart = (AutoCompleteTextView) findViewById(R.id.autocompleteStart);
+		autoCompViewStart.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
+		autoCompViewStart.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view,
@@ -49,20 +63,21 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 				nav.addStartAdd(str);				
 			}
 		});
-	    autoCompViewStart.setOnTouchListener(new OnTouchListener() {
-			
+		autoCompViewStart.setOnTouchListener(new OnTouchListener() {
+
 			@SuppressLint("ClickableViewAccessibility") @Override
 			public boolean onTouch(View v, MotionEvent event) {
 				autoCompViewStart.setHint("");
 				return false;
 			}
 		});
-	    //Addresses
+		autoCompViewStart.setText(nav.getStartAdd());
+		//Addresses
 		final AutoCompleteTextView autoCompViewAddresses = (AutoCompleteTextView) findViewById(R.id.autocompleteAddresses);
 		autoCompViewAddresses.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
 		autoCompViewAddresses.setOnItemClickListener(this);
 		autoCompViewAddresses.setOnTouchListener(new OnTouchListener() {
-			
+
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				autoCompViewAddresses.setHint("");
@@ -82,24 +97,23 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 			}
 		});
 		autoCompViewEnd.setOnTouchListener(new OnTouchListener() {
-			
+
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				autoCompViewEnd.setHint("");
 				return false;
 			}
 		});
-		
+		autoCompViewEnd.setText(nav.getEndAdd());
 		//List of Addresses
 		for(int j = 0; j < nav.getAddresses().size(); j++){
 			placesArray.add(new Address(nav.getAddresses().get(j) , R.drawable.edit));
 		}
-		
+
 		adapter = new AddressAdapter(this, placesArray);	
 		ListView places = (ListView) findViewById(R.id.addressesListView);
 		places.setAdapter(adapter);		
-		ListView lv = (ListView)findViewById(R.id.addressesListView);
-		lv.setOnItemClickListener(new OnItemClickListener() {
+		places.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -126,44 +140,44 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 				dialogEditAddress.show();				
 			}
 		});
-		
-		//ActionBar bar = getSupportActionBar();
+
 		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ABFF")));	
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
 		getSupportActionBar().setCustomView(R.layout.abs_plane_route);
+		Button startBtn = (Button) findViewById(R.id.action_startnav);
+		startBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startNavClicked();				
+			}
+		});
 	}
-	
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		placesArray = ((MyApplication) this.getApplication()).getPlaces();
+		adapter = new AddressAdapter(this, placesArray);	
+		ListView places = (ListView) findViewById(R.id.addressesListView);
+		places.setAdapter(adapter);	
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-    	MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.activity_main_actions, menu);
- 
-        return super.onCreateOptionsMenu(menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.actionbar, menu);
+
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		 // Take appropriate action for each action item click
-        switch (item.getItemId()) {
-        case R.id.action_startnav:
-        	startNavClicked();
-            return true;
-//        case R.id.action_startnav2:
-//        	startNavClicked();
-//            return true;
-//        case R.id.action_person:
-//            // refresh
-//            return true;
-//        case R.id.action_help:
-//            // help action
-//            return true;
-//        case R.id.action_settings:
-//            // check for updates action
-//            return true;
-        default:
-            return super.onOptionsItemSelected(item);
-        }
+		switch (item.getItemId()) {
+
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -176,9 +190,17 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		AutoCompleteTextView autoCompViewAddreses = (AutoCompleteTextView) findViewById(R.id.autocompleteAddresses);
 		autoCompViewAddreses.setText("");
 	}
-	
+
 	public void startNavClicked(){
-		DirectionsFetcher df = new DirectionsFetcher(nav, this);
+		//set global variable
+		((MyApplication) this.getApplication()).setNavigation(nav);
+		DirectionsFetcher df = new DirectionsFetcher(this);
 		df.execute();
+	}
+
+	public void favoritesClicked(View v){
+		Intent i = new Intent(AddressesActivity.this, FavoritesActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(i);
 	}
 }

@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,134 +10,170 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".StartAddressActivity" >
 
-    <AutoCompleteTextView
-        android:id="@+id/autocompleteStart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/autocomp_style"
-        android:completionThreshold="1"
-        android:dropDownListViewStyle="@style/searchResultsList"
-        android:ems="10"
-        android:gravity="right"
-        android:hint="@string/start"
-        android:textColor="@color/black"
-        android:textSize="20sp" >
-
-        <requestFocus />
-    </AutoCompleteTextView>
-
-    <AutoCompleteTextView
-        android:id="@+id/autocompleteAddresses"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/autocomp_style"
-        android:completionThreshold="1"
-        android:dropDownListViewStyle="@style/searchResultsList"
-        android:ems="10"
-        android:gravity="right"
-        android:hint="@string/addresses"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
-
-    <ListView
-        android:id="@+id/addressesListView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.01"
-        android:divider="@color/black"
-        android:dividerHeight="1dip" >
-    </ListView>
+    
 
     <AutoCompleteTextView
         android:id="@+id/autocompleteEnd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout1"
+        android:layout_alignParentRight="true"
         android:background="@drawable/autocomp_style"
         android:completionThreshold="1"
         android:dropDownListViewStyle="@style/searchResultsList"
         android:ems="10"
-        android:gravity="right"
         android:hint="@string/end"
         android:textColor="@color/black"
         android:textSize="20sp" />
     
+    <ListView
+        android:id="@+id/addressesListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView02"
+        android:layout_below="@+id/autocompleteAddresses"
+        android:divider="@color/black"
+        android:dividerHeight="1dip" >
+
+    </ListView>
+    
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="0dp"
-        android:orientation="vertical"
-        android:background="@drawable/customborder" >
+        android:background="@drawable/customborder"
+        android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
-        
-		
-           <Button android:id="@+id/action_map2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-        		   android:orderInCategory="0"
-          		   android:src="@drawable/ic_action_map"
-          		   android:background="?android:attr/selectableItemBackground"
-          		   android:drawableTop="@drawable/ic_action_split"
-          		   android:text="@string/action_map"
-          		   android:textColor="@color/black"
-          		   android:textSize="8sp"
-          		   android:layout_weight="1"/>
-           
-           <Button android:id="@+id/action_favorits2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-        		   android:orderInCategory="0"
-          		   android:src="@drawable/ic_action_favorite"
-          		   android:background="?android:attr/selectableItemBackground"
-          		    android:drawableTop="@drawable/ic_action_favorite"
-          		   android:text="@string/action_favorits"
-          		   android:textColor="@color/black"
-          		   android:textSize="8sp"
-          		   android:layout_weight="1" />
-           
-           <Button android:id="@+id/action_person2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-        		   android:orderInCategory="0"
-          		   android:src="@drawable/ic_action_person"
-          		   android:background="?android:attr/selectableItemBackground"
-          		    android:drawableTop="@drawable/ic_action_person"
-          		   android:text="@string/action_person"
-          		   android:textColor="@color/black"
-          		   android:textSize="8sp"
-          		   android:layout_weight="1"/>
-           
-           <Button android:id="@+id/action_help2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-        		   android:orderInCategory="0"
-          		   android:src="@drawable/ic_action_help"
-          		   android:background="?android:attr/selectableItemBackground"
-          		   android:drawableTop="@drawable/ic_action_help"
-          		   android:text="@string/action_help"
-          		   android:textColor="@color/black"
-          		   android:textSize="8sp"
-          		   android:layout_weight="1" />
-           
-           <Button
-               android:id="@+id/action_settings2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:background="?android:attr/selectableItemBackground"
-               android:drawableTop="@drawable/ic_action_settings"
-          		android:text="@string/action_settings"
-          		android:textColor="@color/black"
-          		android:textSize="8sp"
-               android:src="@drawable/ic_action_settings"
-               android:layout_weight="1" />
-        
-           </LinearLayout>
+
+            <Button
+                android:id="@+id/action_map2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/ic_action_split"
+                android:orderInCategory="0"
+                android:src="@drawable/ic_action_map"
+                android:text="@string/action_map"
+                android:textColor="@color/black"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/action_favorits2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/ic_action_favorite"
+                android:orderInCategory="0"
+                android:onClick="favoritesClicked"
+                android:src="@drawable/ic_action_favorite"
+                android:text="@string/action_favorits"
+                android:textColor="@color/black"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/action_person2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/ic_action_person"
+                android:orderInCategory="0"
+                android:src="@drawable/ic_action_person"
+                android:text="@string/action_person"
+                android:textColor="@color/black"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/action_help2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/ic_action_help"
+                android:orderInCategory="0"
+                android:src="@drawable/ic_action_help"
+                android:text="@string/action_help"
+                android:textColor="@color/black"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/action_settings2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/ic_action_settings"
+                android:src="@drawable/ic_action_settings"
+                android:text="@string/action_settings"
+                android:textColor="@color/black"
+                android:textSize="8sp" />
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+    <AutoCompleteTextView
+        android:id="@+id/autocompleteAddresses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/autocompleteStart"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/autocomp_style"
+        android:completionThreshold="1"
+        android:dropDownListViewStyle="@style/searchResultsList"
+        android:ems="10"
+        android:hint="@string/addresses"
+        android:textColor="@color/black"
+        android:textSize="20sp" >
+    </AutoCompleteTextView>
+
+    <TextView
+        android:id="@+id/TextView_addresses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/autocompleteAddresses"
+        android:layout_below="@+id/autocompleteStart"
+        android:layout_marginTop="24dp"
+        android:text="@string/addresses_txt"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/TextView0_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/autocompleteEnd"
+        android:layout_alignRight="@+id/autocompleteEnd"
+        android:text="@string/end_txt"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autocompleteStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView_start"
+        android:layout_below="@+id/textView_start"
+        android:background="@drawable/autocomp_style"
+        android:completionThreshold="1"
+        android:dropDownListViewStyle="@style/searchResultsList"
+        android:ems="10"
+        android:hint="@string/start"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/TextView_addresses"
+        android:text="@string/start_txt"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>
