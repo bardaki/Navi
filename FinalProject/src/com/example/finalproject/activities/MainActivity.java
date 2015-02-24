@@ -104,28 +104,12 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Take appropriate action for each action item click
 		switch (item.getItemId()) {
-		//        case R.id.action_map:
-		//            // search action
-		//            return true;
-		//        case R.id.action_favorits:
-		//            // location found
-		//        	//nextClicked();
-		//            return true;
-		//        case R.id.action_person:
-		//            // refresh
-		//            return true;
-		//        case R.id.action_help:
-		//            // help action
-		//            return true;
-		//        case R.id.action_settings:
-		//            // check for updates action
-		//            return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}
 
-	public void RoutesClicked(View v){
+	public void routesClicked(View v){
 		Intent i = new Intent(MainActivity.this, AddressesActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);

@@ -29,7 +29,8 @@
     <string name="action_help">עזרה</string>
     <string name="action_person">אישי</string>
     <string name="action_favorits">מועדפים</string>
-    <string name="action_map">תכנון מסלול</string>
+    <string name="action_plane">תכנון מסלול</string>
+    <string name="action_map">מפה</string>
     <string name="action_back">חזור</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_addresses">תכנון מסלול</string>

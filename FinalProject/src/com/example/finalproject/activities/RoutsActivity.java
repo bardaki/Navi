@@ -235,7 +235,7 @@ public class RoutsActivity extends ActionBarActivity  {
 		}
 	}
 
-	public void RoutesClicked(View v){
+	public void routesClicked(View v){
 		Intent i = new Intent(RoutsActivity.this, AddressesActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
@@ -243,6 +243,12 @@ public class RoutsActivity extends ActionBarActivity  {
 
 	public void favoritesClicked(View v){
 		Intent i = new Intent(RoutsActivity.this, FavoritesActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(i);
+	}
+	
+	public void mapClicked(View v){
+		Intent i = new Intent(RoutsActivity.this, MainActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}

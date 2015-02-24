@@ -32,16 +32,29 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:id="@+id/action_map2"
+                android:id="@+id/action_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/ic_action_map"
+                android:orderInCategory="0"
+                android:src="@drawable/ic_action_map"
+                android:text="@string/action_map"
+                android:textColor="@color/black"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/action_plane"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="?android:attr/selectableItemBackground"
                 android:drawableTop="@drawable/ic_action_split"
                 android:orderInCategory="0"
-                android:onClick="RoutesClicked"
-                android:src="@drawable/ic_action_map"
-                android:text="@string/action_map"
+                android:onClick="routesClicked"
+                android:src="@drawable/ic_action_split"
+                android:text="@string/action_plane"
                 android:textColor="@color/black"
                 android:textSize="8sp" />
 
@@ -56,19 +69,6 @@
                 android:onClick="favoritesClicked"
                 android:src="@drawable/ic_action_favorite"
                 android:text="@string/action_favorits"
-                android:textColor="@color/black"
-                android:textSize="8sp" />
-
-            <Button
-                android:id="@+id/action_person2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:drawableTop="@drawable/ic_action_person"
-                android:orderInCategory="0"
-                android:src="@drawable/ic_action_person"
-                android:text="@string/action_person"
                 android:textColor="@color/black"
                 android:textSize="8sp" />
 

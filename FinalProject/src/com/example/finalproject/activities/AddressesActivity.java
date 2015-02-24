@@ -203,4 +203,10 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
+	
+	public void mapClicked(View v){
+		Intent i = new Intent(AddressesActivity.this, MainActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(i);
+	}
 }
