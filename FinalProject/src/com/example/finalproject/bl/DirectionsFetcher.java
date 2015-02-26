@@ -188,8 +188,8 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 							navigationOptions2.add(list);
 						}
 						sum = 0;
-//						list.add(routes.get(j));
-//						navigationOptions2.add(list);
+						//						list.add(routes.get(j));
+						//						navigationOptions2.add(list);
 					}
 				}
 			}
@@ -270,7 +270,7 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 			HttpRequest request = requestFactory.buildGetRequest(urll);
 			HttpResponse httpResponse = request.execute();
 			Result result = httpResponse.parseAs(Result.class);
-			
+
 			return result.formatted_address;
 		}
 		catch (Exception ex) {
@@ -296,8 +296,8 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 		((MyApplication) ((Activity) context).getApplication()).setRoutes(navigationOptions.get(minTimeIndex));
 		Intent i = new Intent(context, RoutsActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//		i.putExtra("routes", (Serializable)navigationOptions.get(minTimeIndex) );  
-//		i.putExtra("navObj", (Serializable)nav );  	
+		//		i.putExtra("routes", (Serializable)navigationOptions.get(minTimeIndex) );  
+		//		i.putExtra("navObj", (Serializable)nav );  	
 		context.startActivity(i);
 	}
 
@@ -352,13 +352,13 @@ public class DirectionsFetcher extends AsyncTask<URL, Integer, List<LatLng> > im
 		@Key("value")
 		public int value;
 	}
-	
+
 	public class Result
 	{
 		@Key("formatted_address")
-	    public String formatted_address;
+		public String formatted_address;
 	}
-	
+
 	@Override
 	public void onLocationChanged(Location location) {
 		// TODO Auto-generated method stub

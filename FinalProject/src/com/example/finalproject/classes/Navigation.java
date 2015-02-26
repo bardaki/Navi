@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("serial")
 public class Navigation implements Serializable{
 	private String id;
 	private String startAdd = "";

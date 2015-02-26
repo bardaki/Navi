@@ -46,7 +46,6 @@ public class RoutsActivity extends ActionBarActivity  {
 
 	Intent intService;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -246,7 +245,7 @@ public class RoutsActivity extends ActionBarActivity  {
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
-	
+
 	public void mapClicked(View v){
 		Intent i = new Intent(RoutsActivity.this, MainActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 

@@ -14,27 +14,27 @@ public class MyApplication extends Application {
 	private Navigation nav = new Navigation();
 	private List<Address> placesArray = new ArrayList<Address>();
 
-    public List<Route> getRoutes() {
-        return routes;
-    }
+	public List<Route> getRoutes() {
+		return routes;
+	}
 
-    public void setRoutes(List<Route> routes) {
-        this.routes = routes;
-    }
-    
-    public Navigation getNavigation() {
-        return nav;
-    }
+	public void setRoutes(List<Route> routes) {
+		this.routes = routes;
+	}
 
-    public void setNavigation(Navigation nav) {
-        this.nav = nav;
-    }
-    
-    public List<Address> getPlaces() {
-        return placesArray;
-    }
+	public Navigation getNavigation() {
+		return nav;
+	}
 
-    public void setPlaces(List<Address> placesArray) {
-        this.placesArray = placesArray;
-    }
+	public void setNavigation(Navigation nav) {
+		this.nav = nav;
+	}
+
+	public List<Address> getPlaces() {
+		return placesArray;
+	}
+
+	public void setPlaces(List<Address> placesArray) {
+		this.placesArray = placesArray;
+	}
 }

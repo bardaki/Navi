@@ -26,7 +26,6 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends ActionBarActivity implements OnItemClickListener{
-	//private Navigation nav = new Navigation();
 	private GoogleMap googleMap;
 	Dialog dialogAddresses;
 	Dialog dialogEndAddress;
@@ -114,7 +113,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
-	
+
 	public void favoritesClicked(View v){
 		Intent i = new Intent(MainActivity.this, FavoritesActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
@@ -124,6 +123,5 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		// TODO Auto-generated method stub
-
 	}
 }

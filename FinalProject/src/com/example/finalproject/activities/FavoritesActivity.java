@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import com.example.finalproject.R;
 import com.example.finalproject.bl.DirectionsFetcher;
+import com.example.finalproject.classes.Address;
 import com.example.finalproject.classes.Navigation;
 import com.example.finalproject.custom.FavoritesAdapter;
 import com.example.finalproject.custom.MyApplication;
@@ -33,6 +34,7 @@ import android.widget.TextView;
 public class FavoritesActivity extends ActionBarActivity {
 	private SqliteController sqlController = new SqliteController(this);
 	private static FavoritesAdapter adapter;
+	private final List<String> placesArray = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +83,6 @@ public class FavoritesActivity extends ActionBarActivity {
 				final Dialog dialogFavoriteDetails = new Dialog(FavoritesActivity.this);			
 				dialogFavoriteDetails.setContentView(R.layout.activity_favorite_details);
 				dialogFavoriteDetails.setTitle(R.string.favoriteDetails);
-				//((MyApplication) FavoritesActivity.this.getApplication()).setNavigation((Navigation)parent.getItemAtPosition(position));
-				List<String> placesArray = new ArrayList<String>();
 				final ArrayAdapter<String>  adapter;
 				final Navigation nav = (Navigation)parent.getItemAtPosition(position);
 				TextView txtStart = (TextView) dialogFavoriteDetails.findViewById(R.id.textViewStart);
@@ -105,6 +105,7 @@ public class FavoritesActivity extends ActionBarActivity {
 					public void onClick(View v) {
 						//set global variable
 						((MyApplication) FavoritesActivity.this.getApplication()).setNavigation(nav);
+						((MyApplication) FavoritesActivity.this.getApplication()).setPlaces(placesArrayTocontext());
 						DirectionsFetcher df = new DirectionsFetcher(FavoritesActivity.this);
 						df.execute();
 						dialogFavoriteDetails.dismiss();
@@ -153,10 +154,18 @@ public class FavoritesActivity extends ActionBarActivity {
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
-	
+
 	public void mapClicked(View v){
 		Intent i = new Intent(FavoritesActivity.this, MainActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
+	}
+
+	public List<Address> placesArrayTocontext(){
+		List<Address> lst = new ArrayList<Address>();
+		for(int i = 0; i < placesArray.size(); i++){
+			lst.add(new Address(placesArray.get(i), R.drawable.edit));
+		}
+		return lst;
 	}
 }

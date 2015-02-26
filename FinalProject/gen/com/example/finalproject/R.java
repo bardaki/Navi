@@ -2047,7 +2047,6 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020069;
     }
     public static final class id {
-        public static final int TextView02=0x7f09005f;
         public static final int TextView0_end=0x7f090068;
         public static final int TextView_addresses=0x7f090067;
         public static final int action_add=0x7f090056;
@@ -2060,25 +2059,25 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f090033;
         public static final int action_bar_title=0x7f090032;
         public static final int action_context_bar=0x7f090046;
-        public static final int action_favorits2=0x7f090063;
-        public static final int action_help2=0x7f090064;
-        public static final int action_map=0x7f090061;
+        public static final int action_favorits2=0x7f090060;
+        public static final int action_help2=0x7f090061;
+        public static final int action_map=0x7f09005e;
         public static final int action_menu_divider=0x7f090005;
         public static final int action_menu_presenter=0x7f090006;
         public static final int action_mode_bar=0x7f090042;
         public static final int action_mode_bar_stub=0x7f090041;
         public static final int action_mode_close_button=0x7f090034;
-        public static final int action_plane=0x7f090062;
-        public static final int action_settings=0x7f090078;
-        public static final int action_settings2=0x7f090065;
+        public static final int action_plane=0x7f09005f;
+        public static final int action_settings=0x7f090077;
+        public static final int action_settings2=0x7f090062;
         public static final int action_startnav=0x7f090055;
         public static final int activity_chooser_view_content=0x7f090035;
-        public static final int addressTxt=0x7f090076;
-        public static final int addressesListView=0x7f09005e;
+        public static final int addressTxt=0x7f090075;
+        public static final int addressesListView=0x7f090064;
         public static final int addresstextView=0x7f090059;
         public static final int always=0x7f090015;
-        public static final int autocompleteAddresses=0x7f090060;
-        public static final int autocompleteEnd=0x7f09005c;
+        public static final int autocompleteAddresses=0x7f090065;
+        public static final int autocompleteEnd=0x7f090063;
         public static final int autocompleteStart=0x7f090066;
         public static final int beginning=0x7f09001c;
         public static final int book_now=0x7f09002c;
@@ -2096,7 +2095,7 @@ containing a value of this type.
         public static final int dialog=0x7f09001a;
         public static final int disableHome=0x7f09000e;
         public static final int dropdown=0x7f09001b;
-        public static final int editImg=0x7f090075;
+        public static final int editImg=0x7f090074;
         public static final int edit_query=0x7f090047;
         public static final int end=0x7f09001d;
         public static final int expand_activities_button=0x7f090036;
@@ -2111,8 +2110,8 @@ containing a value of this type.
         public static final int icon=0x7f09003a;
         public static final int ifRoom=0x7f090017;
         public static final int image=0x7f090037;
-        public static final int imageView1=0x7f090074;
-        public static final int linearLayout1=0x7f09005d;
+        public static final int linearLayout1=0x7f09005c;
+        public static final int linearLayout2=0x7f09005d;
         public static final int list=0x7f090073;
         public static final int listMode=0x7f09000b;
         public static final int listViewAddresses=0x7f09006a;
@@ -2121,9 +2120,9 @@ containing a value of this type.
         public static final int match_parent=0x7f09002b;
         public static final int middle=0x7f09001e;
         public static final int monochrome=0x7f090031;
-        public static final int mprivate=0x7f09007b;
-        public static final int msettings=0x7f09007a;
-        public static final int mstart=0x7f090079;
+        public static final int mprivate=0x7f09007a;
+        public static final int msettings=0x7f090079;
+        public static final int mstart=0x7f090078;
         public static final int never=0x7f090018;
         public static final int none=0x7f090010;
         public static final int normal=0x7f09000c;
@@ -2166,7 +2165,7 @@ containing a value of this type.
         public static final int timeText=0x7f09005b;
         public static final int title=0x7f09003b;
         public static final int top=0x7f090020;
-        public static final int txtAddress=0x7f090077;
+        public static final int txtAddress=0x7f090076;
         public static final int up=0x7f090001;
         public static final int useLogo=0x7f090014;
         public static final int withText=0x7f090019;

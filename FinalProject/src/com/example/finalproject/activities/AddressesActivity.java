@@ -145,6 +145,7 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
 		getSupportActionBar().setCustomView(R.layout.abs_plane_route);
 		Button startBtn = (Button) findViewById(R.id.action_startnav);
+		//Start navigation button
 		startBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -203,7 +204,7 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		startActivity(i);
 	}
-	
+
 	public void mapClicked(View v){
 		Intent i = new Intent(AddressesActivity.this, MainActivity.class);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
