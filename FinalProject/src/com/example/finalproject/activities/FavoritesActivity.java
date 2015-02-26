@@ -34,7 +34,7 @@ import android.widget.TextView;
 public class FavoritesActivity extends ActionBarActivity {
 	private SqliteController sqlController = new SqliteController(this);
 	private static FavoritesAdapter adapter;
-	private final List<String> placesArray = new ArrayList<String>();
+	private List<String> placesArray = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +91,7 @@ public class FavoritesActivity extends ActionBarActivity {
 				txtEnd.setText(nav.getEndAdd());
 				ListView lv = (ListView) dialogFavoriteDetails.findViewById(R.id.listViewAddresses);
 				//List of Addresses
+				placesArray = new ArrayList<String>();
 				for(int j = 0; j < nav.getAddresses().size(); j++){
 					placesArray.add(nav.getAddresses().get(j));
 				}

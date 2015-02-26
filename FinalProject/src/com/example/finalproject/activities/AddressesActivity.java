@@ -36,7 +36,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddressesActivity extends ActionBarActivity implements OnItemClickListener  {
-	//	private SqliteController sqlController = new SqliteController(this);
 	private List<Address> placesArray = new ArrayList<Address>();
 	private static AddressAdapter adapter;
 	private Navigation nav;
@@ -190,6 +189,7 @@ public class AddressesActivity extends ActionBarActivity implements OnItemClickL
 		nav.addAddress(str);
 		AutoCompleteTextView autoCompViewAddreses = (AutoCompleteTextView) findViewById(R.id.autocompleteAddresses);
 		autoCompViewAddreses.setText("");
+		autoCompViewAddreses.setHint(R.string.addresses);
 	}
 
 	public void startNavClicked(){
